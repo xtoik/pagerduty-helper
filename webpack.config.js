@@ -6,7 +6,7 @@ const entryPoints = {
   background: path.resolve(__dirname, 'src', 'background.ts'),
 };
 
-module.exports = {
+var config = {
   entry: entryPoints,
   output: {
     path: path.join(__dirname, outputPath),
@@ -33,4 +33,12 @@ module.exports = {
       patterns: [{from: '.', to: '.', context: 'public'}],
     }),
   ],
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+
+  return config
 };
