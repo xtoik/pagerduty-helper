@@ -1,10 +1,9 @@
-import { CondenseSchedulesHelper } from "./engine/condense-schedules-helper";
-import { HelpersManager } from "./engine/helper";
+import {CreateHelpersManager} from './engine/helpers-manager-factory';
 
-const helpersManager = new HelpersManager(new CondenseSchedulesHelper());
+const helpersManager = CreateHelpersManager();
 
 chrome.runtime.onInstalled.addListener(() => {
-  for (var contextMenu of helpersManager.contextMenus) {
+  for (const contextMenu of helpersManager.contextMenus) {
     chrome.contextMenus.create(contextMenu);
   }
 });

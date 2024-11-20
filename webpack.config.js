@@ -4,6 +4,7 @@ const path = require('path');
 const outputPath = 'dist';
 const entryPoints = {
   background: path.resolve(__dirname, 'src', 'background.ts'),
+  popup: path.resolve(__dirname, 'src', 'index.tsx')
 };
 
 var config = {
@@ -11,9 +12,10 @@ var config = {
   output: {
     path: path.join(__dirname, outputPath),
     filename: '[name].js',
+    clean: true
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.tsx'],
   },
   module: {
     rules: [
@@ -26,6 +28,10 @@ var config = {
         test: /\.(jpg|jpeg|png|gif|woff|woff2|eot|ttf|svg)$/i,
         use: 'url-loader?limit=1024',
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
+      }
     ],
   },
   plugins: [

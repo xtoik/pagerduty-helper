@@ -3,7 +3,9 @@
     "@types/node": "^22.7.5",
     "chrome-types": "^0.1.319",
     "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
     "gts": "^6.0.2",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
     "webpack": "^5.96.1",
@@ -20,5 +22,11 @@
     "build": "webpack --mode development",
     "dev": "webpack --mode development --watch",
     "pack": "webpack --mode production"
+  },
+  "dependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
