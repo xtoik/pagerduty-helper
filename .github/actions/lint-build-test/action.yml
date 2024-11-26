@@ -3,8 +3,6 @@ description: 'Checks out the sources, executes the linting, builds and tests the
 runs:
   using: "composite"
   steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - name: Install
         run: npm install
       - name: Lint

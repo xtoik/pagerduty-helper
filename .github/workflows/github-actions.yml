@@ -4,5 +4,7 @@ jobs:
     lint-build-test:
         runs-on: ubuntu-latest
         steps:
+            - name: Check out repository code
+              uses: actions/checkout@v4
             - id: checkout-lint-build-test
-              uses: ./github/actions/checkout-lint-build-test.yml
+              uses: ./.github/actions/lint-build-test
