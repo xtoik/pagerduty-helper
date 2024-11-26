@@ -1,0 +1,15 @@
+name: PagerDuty Helper GitHub Actions
+on: [push]
+jobs:
+    lint-build-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v4
+            - name: Install
+              run: npm install
+            - name: Lint
+              run: npm run lint 
+            - name: Build
+              run: npm run pack
+
