@@ -5,7 +5,10 @@ runs:
   steps:
       - name: Install
         run: npm install
+        shell: bash
       - name: Lint
-        run: npm run lint 
+        run: npm run lint
+        shell: bash
       - name: Build
         run: npm run pack
+        shell: bash
