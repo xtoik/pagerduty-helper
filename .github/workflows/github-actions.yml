@@ -7,4 +7,4 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v4
             - id: checkout-lint-build-test
-              uses: .github/actions/lint-build-test
+              uses: ./.github/actions/lint-build-test
