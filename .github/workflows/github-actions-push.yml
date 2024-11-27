@@ -1,5 +1,10 @@
-name: PagerDuty Helper GitHub Actions
-on: [push]
+name: PagerDuty Helper GitHub Push Actions
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+      - 'hotfix/**'
 jobs:
     lint-build-test:
         runs-on: ubuntu-latest
