@@ -1,0 +1,14 @@
+name: 'Checkout Lint Build Test'
+description: 'Checks out the sources, executes the linting, builds and tests the sources'
+runs:
+  using: "composite"
+  steps:
+      - name: Install
+        run: npm install
+        shell: bash
+      - name: Lint
+        run: npm run lint
+        shell: bash
+      - name: Build
+        run: npm run pack
+        shell: bash
