@@ -5,19 +5,21 @@ on:
       - '**'
 jobs:
     release-from-tag:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out repository code
-              uses: actions/checkout@v4
-            - id: checkout-lint-build-test
-              uses: ./.github/actions/lint-build-test
-            - uses: octokit/request-action@v2.x
-              id: create_release
-              with:
-                route: POST /repos/{owner}/{repo}/releases
-                owner: xtoik
-                repo: pagerduty-helper
-                tag_name: ${{  github.ref_name }}
-                generate_release_notes: true
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      permissions:
+        contents: write
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+        - id: checkout-lint-build-test
+          uses: ./.github/actions/lint-build-test
+        - uses: octokit/request-action@v2.x
+          id: create_release
+          with:
+            route: POST /repos/{owner}/{repo}/releases
+            owner: xtoik
+            repo: pagerduty-helper
+            tag_name: ${{  github.ref_name }}
+            generate_release_notes: true
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
