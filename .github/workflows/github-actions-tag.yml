@@ -28,3 +28,5 @@ jobs:
           run: |
             zip -r pagerduty-helper_${{  github.ref_name }}.zip dist/* -j
             gh release upload ${{  github.ref_name }} pagerduty-helper_${{  github.ref_name }}.zip
+          env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
