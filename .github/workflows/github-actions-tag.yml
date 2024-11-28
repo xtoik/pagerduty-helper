@@ -19,6 +19,7 @@ jobs:
             route: POST /repos/{owner}/{repo}/releases
             owner: xtoik
             repo: pagerduty-helper
+            name: PagerDuty Helper release ${{  github.ref_name }}
             tag_name: ${{  github.ref_name }}
             generate_release_notes: true
           env:
@@ -26,4 +27,4 @@ jobs:
         - name: Package chrome extension
           run: |
             zip -r pagerduty-helper_${{  github.ref_name }}.zip dist/* -j
-            gh release upload pagerduty-helper_${{  github.ref_name }}.zip
+            gh release upload ${{  github.ref_name }} pagerduty-helper_${{  github.ref_name }}.zip
