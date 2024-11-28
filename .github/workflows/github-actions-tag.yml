@@ -23,3 +23,7 @@ jobs:
             generate_release_notes: true
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Package chrome extension
+          run: |
+            zip -r pagerduty-helper_${{  github.ref_name }}.zip dist/* -j
+            gh release upload pagerduty-helper_${{  github.ref_name }}.zip
