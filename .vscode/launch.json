@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "chrome://extensions/",
+            "request": "launch",
+            "url": "chrome://extensions/",
+            "runtimeArgs": ["--load-extension=${workspaceFolder}/dist"]
+        }
+    ]
+}
